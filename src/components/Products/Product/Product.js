@@ -3,7 +3,7 @@ import { useState, useMemo } from "react";
 import React from "react";
 import ProductImage from "./ProductImage";
 import ProductForm from "./ProductForm/ProductForm";
-
+import PropTypes from "prop-types";
 const Product = (props) => {
 	const [currentColor, setCurrentColor] = useState(props.colors[0]);
 	const [currentSize, setCurrentSize] = useState(props.sizes[0].name);
@@ -52,6 +52,20 @@ const Product = (props) => {
 			</div>
 		</article>
 	);
+};
+
+Product.propTypes = {
+	name: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	basePrice: PropTypes.number.isRequired,
+	sizes: PropTypes.arrayOf(
+		PropTypes.shape({
+			name: PropTypes.string.isRequired,
+			additionalPrice: PropTypes.number,
+		})
+	).isRequired,
+	colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+	handleButtonClick: PropTypes.func.isRequired,
 };
 
 export default Product;

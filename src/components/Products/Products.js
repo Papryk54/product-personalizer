@@ -15,4 +15,22 @@ const Products = () => {
 	);
 };
 
+Products.propTypes = {
+	productsData: PropTypes.arrayOf(
+		PropTypes.shape({
+			id: PropTypes.number.isRequired,
+			name: PropTypes.string.isRequired,
+			title: PropTypes.string.isRequired,
+			basePrice: PropTypes.number.isRequired,
+			sizes: PropTypes.arrayOf(
+				PropTypes.shape({
+					name: PropTypes.string.isRequired,
+					additionalPrice: PropTypes.number,
+				})
+			).isRequired,
+			colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+		})
+	).isRequired,
+};
+
 export default Products;

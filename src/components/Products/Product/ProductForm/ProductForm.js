@@ -3,7 +3,7 @@ import React from "react";
 import Button from "../../../Button/Button";
 import OptionSize from "./OptionSize";
 import OptionColor from "./OptionColor";
-
+import PropTypes from "prop-types";
 const ProductForm = (props) => {
 	return (
 		<form>
@@ -23,4 +23,15 @@ const ProductForm = (props) => {
 		</form>
 	);
 };
+
+ProductForm.propTypes = {
+	sizes: PropTypes.array.isRequired,
+	currentSize: PropTypes.string.isRequired,
+	handleSizeChange: PropTypes.func.isRequired,
+	colors: PropTypes.array.isRequired,
+	currentColor: PropTypes.string.isRequired,
+	handleColorChange: PropTypes.func.isRequired,
+	handleButtonClick: PropTypes.func.isRequired,
+};
+
 export default ProductForm;

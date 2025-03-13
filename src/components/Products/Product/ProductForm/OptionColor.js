@@ -1,5 +1,6 @@
 import styles from "../Product.module.scss";
 import clsx from "clsx";
+import PropTypes from "prop-types";
 
 const OptionColor = (props) => {
 	return (
@@ -25,6 +26,12 @@ const OptionColor = (props) => {
 			</ul>
 		</div>
 	);
+};
+
+OptionColor.propTypes = {
+	colors: PropTypes.arrayOf(PropTypes.string),
+	currentColor: PropTypes.string,
+	handleColorChange: PropTypes.func,
 };
 
 export default OptionColor;
